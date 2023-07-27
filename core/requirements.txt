@@ -1,0 +1,7 @@
+Django==4.2.2
+django-shortcuts==1.6
+psycopg2-binary==2.9.6
+django-dotenv==1.4.2
+gunicorn
+requests
+django-storages

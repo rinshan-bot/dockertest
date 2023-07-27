@@ -1,0 +1,49 @@
+version: '3'
+ 
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - static:/core/staticfiles
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - web_nw
+      - nginx_nw
+    depends_on:
+      - db
+  db:
+    image: postgres:10
+    container_name: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    restart: always
+    env_file: .env
+    networks:
+      - web_nw
+  nginx:
+    container_name: nginx
+    build:
+      context: nginx/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - static:/core/staticfiles
+    networks:
+      - nginx_nw
+    depends_on:
+      - web
+ 
+volumes:
+  postgres:
+  static:
+    external: true
+networks:
+  web_nw:
+    external: true
+  nginx_nw:
+    external: true
