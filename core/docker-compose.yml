@@ -11,7 +11,7 @@ services:
     ports:
       - "5000:5000"
     networks:
-      - web_nw 
+      - web_nw
       - nginx_nw
     depends_on:
       - db
