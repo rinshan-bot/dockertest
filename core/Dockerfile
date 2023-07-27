@@ -1,7 +1,7 @@
 FROM python:3.10
 
 ENV PYTHONBUFFERED=1
-
+RUN mkdir /core
 COPY . /core
 WORKDIR /core
 
@@ -17,7 +17,7 @@ RUN apt-get update -y \
 ENV PATH="/opt/venv/bin:$PATH"
 
 # USER rinshan
-
+ADD . /core/
 # CMD [ "python","manage.py","runserver","0.0.0.0:8000" ]
 # CMD [ "/core/entrypoint.sh" ]
 EXPOSE 5000
