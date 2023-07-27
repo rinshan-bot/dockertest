@@ -1,0 +1,26 @@
+/* Custom styles for the dropdown */
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  min-width: 200px;
+}
+
+.dropdown:hover .custom-dropdown {
+  display: block;
+}
+
+.service-dropdown-content {
+  padding: 10px;
+}
+
+.image-container {
+  padding: 10px;
+  background-color: #f7f7f7;
+  min-width: 200px;
+  text-align: center;
+}
+.navbar {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
